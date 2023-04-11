@@ -6,8 +6,8 @@ document.getElementById('roll').addEventListener('click', () => {
     let date = new Date()
     let time = date.toLocaleTimeString();
     result = getRandomLetter(getRandomInt(20))
-    let table = document.getElementById('history');
-    let row = table.insertRow(1);
+    let tableBody = document.getElementById('tableBody');
+    let row = tableBody.insertRow(0);
     row.setAttribute('id', `item-${id}`);
     row.insertCell(0).innerHTML = time;
     row.insertCell(1).innerHTML = result;
@@ -19,6 +19,19 @@ function getRandomInt(max) {
     console.log('using max random number of ' + max)
     return Math.floor(Math.random() * Math.floor(max)) + 1;
   }
+
+  document.getElementById('clear-history').addEventListener('click', () => {
+    let tableBody = document.getElementById('tableBody');
+    clearHistory(tableBody);
+    
+})
+
+function clearHistory(element) {
+    while(element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+}
+
 
 function getRandomLetter(num) {
     console.log(`Received ${num} as a random number`)

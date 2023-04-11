@@ -21,6 +21,9 @@
                 </div>
                 <h1 id="result-label" class="fw-bold text-info text-center">Your letter is:</h1>
                 <h1 id="result" class="fw-bold text-info text-center display-1"></h1>
+                <div class=" text-center">
+                    <button id="clear-history" class="btn btn-secondary tex-light m-2">Clear History</button>
+                </div>
             </div>
             </div>
 
@@ -31,10 +34,11 @@
             </div>
             <div class="col-sm-6">
             <table id="history" class="table table-info table-striped">
-                <tr>   
+                <thead>   
                     <th>Time</th>
                     <th>Letter</th>
-                    </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
             </table>
             </div>
             <div class="col-sm-3">
