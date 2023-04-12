@@ -47,7 +47,7 @@ document.getElementById('roll').addEventListener('click', () => {
 })
 
 function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max)) + 1;
+    return Math.floor(Math.random() * Math.floor(max));
   }
 
   document.getElementById('clear-history').addEventListener('click', () => {
@@ -62,51 +62,56 @@ function clearHistory(element) {
     }
 }
 
-
 function getRandomLetter(num) {
-    
-    switch(num){
-        case 1:
-            return 'A';
-        case 2:
-            return 'B';
-        case 3:
-            return 'C';
-        case 4:
-            return 'D';
-        case 5:
-            return 'E';
-        case 6:
-            return 'F';
-        case 7:
-            return 'G';
-        case 8:
-            return 'H';
-        case 9:
-            return 'I';
-        case 10:
-            return 'J';
-        case 11:
-            return 'K';
-        case 12:
-            return 'L';
-        case 13:
-            return 'M';
-        case 14:
-            return 'N';
-        case 15:
-            return 'O';
-        case 16:
-            return 'P';
-        case 17:
-            return 'R';
-        case 18:
-            return 'S';
-        case 19:
-            return 'T';
-        case 20:
-            return 'W';
+    const letters = 'ABCDEFGHIJKLMNOPRSTW';
+    return letters.charAt(num) || 'Invalid Number';
+}
 
-        default: `Invalid Number`
-        }
-    }
+
+// function getRandomLetter(num) {
+    
+//     switch(num){
+//         case 1:
+//             return 'A';
+//         case 2:
+//             return 'B';
+//         case 3:
+//             return 'C';
+//         case 4:
+//             return 'D';
+//         case 5:
+//             return 'E';
+//         case 6:
+//             return 'F';
+//         case 7:
+//             return 'G';
+//         case 8:
+//             return 'H';
+//         case 9:
+//             return 'I';
+//         case 10:
+//             return 'J';
+//         case 11:
+//             return 'K';
+//         case 12:
+//             return 'L';
+//         case 13:
+//             return 'M';
+//         case 14:
+//             return 'N';
+//         case 15:
+//             return 'O';
+//         case 16:
+//             return 'P';
+//         case 17:
+//             return 'R';
+//         case 18:
+//             return 'S';
+//         case 19:
+//             return 'T';
+//         case 20:
+//             return 'W';
+
+//         default: `Invalid Number`
+//         }
+//     }
