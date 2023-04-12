@@ -10,9 +10,26 @@ document.getElementById('roll').addEventListener('click', () => {
     let row = tableBody.insertRow(0);
     row.setAttribute('id', `item-${id}`);
     row.insertCell(0).innerHTML = time;
-    row.insertCell(1).innerHTML = result;
+    row.insertCell(1).innerHTML = "Rolling...";
     document.getElementById('result').innerHTML = result ;
     id++
+
+
+    // Step 3: Use setInterval to cycle through random letters
+    let iteration = 0;
+    intervalId = setInterval(() => {
+        document.getElementById('result').innerHTML = getRandomLetter(getRandomInt(20));
+        iteration++;
+
+        // Step 5: Stop the interval after a certain number of iterations
+        if (iteration >= 20) {
+            clearInterval(intervalId);
+            result = getRandomLetter(getRandomInt(20));
+            document.getElementById('result').innerHTML = result;
+            row.cells[1].innerHTML = result; // Update the row with the final result
+        }
+    }, 60);
+
 })
 
 function getRandomInt(max) {
