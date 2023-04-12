@@ -1,8 +1,21 @@
 let id = 0
 let result;
+let isRolling = false; //roll cooldown
 
 document.getElementById('roll').addEventListener('click', () => {
-    console.log('button is working');
+
+        // check if roll is already in progress
+        if (isRolling) {
+            console.log('Roll already in progress. Please wait...');
+            return; // ignore click event
+        }
+    
+        console.log('Button clicked. Starting roll...');
+    
+        // set roll in progress flag to true
+        isRolling = true;
+
+
     let date = new Date()
     let time = date.toLocaleTimeString();
     result = getRandomLetter(getRandomInt(20))
@@ -22,18 +35,18 @@ document.getElementById('roll').addEventListener('click', () => {
         iteration++;
 
         // Step 5: Stop the interval after a certain number of iterations
-        if (iteration >= 20) {
+        if (iteration >= 12) {
             clearInterval(intervalId);
             result = getRandomLetter(getRandomInt(20));
             document.getElementById('result').innerHTML = result;
             row.cells[1].innerHTML = result; // Update the row with the final result
+            isRolling = false; //reset flag
         }
-    }, 60);
+    }, 40);
 
 })
 
 function getRandomInt(max) {
-    console.log('using max random number of ' + max)
     return Math.floor(Math.random() * Math.floor(max)) + 1;
   }
 
@@ -51,7 +64,6 @@ function clearHistory(element) {
 
 
 function getRandomLetter(num) {
-    console.log(`Received ${num} as a random number`)
     
     switch(num){
         case 1:
