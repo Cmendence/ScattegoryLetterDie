@@ -57,6 +57,7 @@ function getRandomInt(max) {
 })
 
 function clearHistory(element) {
+    document.getElementById('result').innerHTML='';
     while(element.firstChild) {
         element.removeChild(element.firstChild);
     }
